@@ -51,6 +51,17 @@ namespace DAL.Methods
             }
             return retVal;
         }
+
+        public static List<Dispositivos> GetAll()
+        {
+            List<Dispositivos> retVal = new List<Dispositivos>();
+
+            using (var context = new WakeOnLanContext())
+            {
+                retVal = context.Dispositivos.ToList();
+            }
+            return retVal;
+        }
         #endregion
 
         #region Guardar
