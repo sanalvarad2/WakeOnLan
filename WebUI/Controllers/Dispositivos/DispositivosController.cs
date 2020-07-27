@@ -17,7 +17,7 @@ namespace WebUI.Controllers.Dispositivos
         public IActionResult GetById(int id)
         {
             DAL.Models.Dispositivos retVal = DAL.Methods.DispositivosBC.GetByID(id);
-            return Ok(retVal);     
+            return Ok(retVal);
         }
 
         [HttpGet]
@@ -74,17 +74,18 @@ namespace WebUI.Controllers.Dispositivos
             try
             {
                 IPAddress ip = await app.GetAddress.GetHost(hostname);
+                bool pingeable = Application.PingHost.PingHost.Ping_Host(ip);
                 string mac = app.GetAddress.getMacByIp(ip.ToString());
                 retVal.isSuccess = true;
                 retVal.Data = mac;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 retVal.isSuccess = false;
                 retVal.ErrorMessage = ex.Message;
             }
             return Ok(retVal);
-            
+
 
         }
     }

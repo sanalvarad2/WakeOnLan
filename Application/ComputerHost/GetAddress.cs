@@ -11,7 +11,8 @@ namespace Application.ComputerHost
     {
         public static string getMacByIp(string ip)
         {
-            var macIpPairs = GetAllMacAddressesAndIppairs();
+
+            var macIpPairs = GetAllMacAddressesAndIppairs(ip);
             int index = macIpPairs.FindIndex(x => x.IpAddress == ip);
             if (index >= 0)
             {
@@ -23,12 +24,13 @@ namespace Application.ComputerHost
             }
         }
 
-        public static List<MacIpPair> GetAllMacAddressesAndIppairs()
+        public static List<MacIpPair> GetAllMacAddressesAndIppairs(string ip)
         {
             List<MacIpPair> mip = new List<MacIpPair>();
             System.Diagnostics.Process pProcess = new System.Diagnostics.Process();
             pProcess.StartInfo.FileName = "arp";
-            pProcess.StartInfo.Arguments = "-a ";
+
+            pProcess.StartInfo.Arguments = $"-a {ip}";
             pProcess.StartInfo.UseShellExecute = false;
             pProcess.StartInfo.RedirectStandardOutput = true;
             pProcess.StartInfo.CreateNoWindow = true;
@@ -54,7 +56,7 @@ namespace Application.ComputerHost
             try
             {
                 IPHostEntry Tempaddr = await Dns.GetHostEntryAsync(name);
-                
+
                 retVal = Tempaddr.AddressList.Where(x => x.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork).FirstOrDefault();
 
             }
