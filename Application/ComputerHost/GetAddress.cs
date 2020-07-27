@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 namespace Application.ComputerHost
 {
-    class GetAddress
+    public class GetAddress
     {
         public static string getMacByIp(string ip)
         {
@@ -47,19 +48,19 @@ namespace Application.ComputerHost
             return mip;
         }
 
-        public static IPAddress GetHost(string name)
+        public async static Task<IPAddress> GetHost(string name)
         {
             IPAddress retVal = null;
             try
             {
-                IPHostEntry Tempaddr = Dns.GetHostEntry(name);
+                IPHostEntry Tempaddr = await Dns.GetHostEntryAsync(name);
                 
                 retVal = Tempaddr.AddressList.Where(x => x.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork).FirstOrDefault();
 
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                throw;
             }
             return retVal;
         }
