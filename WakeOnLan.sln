@@ -10,7 +10,7 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SQL", "SQL\SQL.sqlproj", "{
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebUI", "WebUI\WebUI.csproj", "{DCC5F3B4-B547-4BDD-B642-FC8D22200E3E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Commons", "Commons\Commons.csproj", "{0C5CAE23-827E-4707-A997-07C52036C3CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Commons", "Commons\Commons.csproj", "{0C5CAE23-827E-4707-A997-07C52036C3CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,8 +27,6 @@ Global
 		{DF14A406-3B06-4D6D-96BA-F652A8414DD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF14A406-3B06-4D6D-96BA-F652A8414DD1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{651BBF44-44D9-43D9-B1AC-4D2F3759B186}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{651BBF44-44D9-43D9-B1AC-4D2F3759B186}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{651BBF44-44D9-43D9-B1AC-4D2F3759B186}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{651BBF44-44D9-43D9-B1AC-4D2F3759B186}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{651BBF44-44D9-43D9-B1AC-4D2F3759B186}.Release|Any CPU.Build.0 = Release|Any CPU
 		{651BBF44-44D9-43D9-B1AC-4D2F3759B186}.Release|Any CPU.Deploy.0 = Release|Any CPU
