@@ -20,9 +20,7 @@ jobs:
     - name: Install dependencies
       run: dotnet restore
     - name: BuildAPP
-      run: dotnet build Application --configuration Release --no-restore
-    - name: BuildCMd
-      run: dotnet build ApplicationCommand --configuration Release --no-restore
+      run: dotnet build Application --configuration Release --no-restore    
     - name: BuildCommons
       run: dotnet build Commons --configuration Release --no-restore
     - name: BuildDal
