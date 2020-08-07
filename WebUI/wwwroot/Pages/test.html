@@ -3,8 +3,43 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
+    <link href="../lib/bootstrap/css/bootstrap.css" rel=" stylesheet"/>
+    <script src="../lib/axios/axios.js"></script>
+    <script src="../lib/vue/vue.js"></script>
 </head>
 <body>
     TEST
+    <div id="app">
+
+        <div>
+            <label>{{mac}}</label>
+        </div>
+        <div>
+            <input type="text" v-model="nombre" />
+        </div>
+        <div>
+            <button @click="test">Mostrar</button>
+        </div>
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                mac: null,
+                nombre: null
+            },
+            methods: {
+                test: function () {
+                    vm = this;
+                    axios.post("../../api/Dispositivos/GetMacAddress?hostname=" + vm.nombre).then(
+                        function (response) {
+                            console.log(response);
+                            vm.mac = response.data.data;
+                        })
+                }
+            }
+            
+        })
+    </script>
 </body>
 </html>
