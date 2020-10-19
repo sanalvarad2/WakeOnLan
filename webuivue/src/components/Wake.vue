@@ -3,6 +3,8 @@
 </template>
 
 <script>
+import 'bootstrap';
+import 'jquery'
 export default {
 
 }
